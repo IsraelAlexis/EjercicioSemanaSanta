@@ -7,11 +7,29 @@ export function Home() {
         return(diaSanto.costoEvento<=15000)
     })
 
-    console.log(resultado)
+    let filtro=semanaSanta.filter(function(diaDos){
+        return(diaDos.cantidadFeligreses<3500 && diaDos.costoEvento<35000 && diaDos==false )
+    })
+        
 
-    return(
+return(
         <>
-        <h1>Programacion parroquia Semana Santa</h1>
+        <section className="container">
+            <div className="row">
+                <div className="col-12 col-md-8">
+                    <h3>Programacion Semana Mayor
+                    </h3>
+                    <hr />
+                    {semanaSanta.map(function(dia){
+                        return(
+                            <h1>{dia.eventoPrincipal} costo: $ {dia.costoEvento}</h1>
+                            
+                        )
+                    })}
+                </div>
+            </div>
+        </section>
+
         </>
     )
 }
